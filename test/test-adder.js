@@ -1,7 +1,8 @@
-const should = require('chai').should();
+// import chai, declare expect variable
+const expect = require('chai').expect;
 
+// import adder
 const adder = require('../adder');
-
 
 // unit tests for our `adder` function
 describe('adder', function() {
@@ -19,7 +20,7 @@ describe('adder', function() {
     // produce the expected value
     normalCases.forEach(function(input) {
       const answer = adder(input.a, input.b);
-      answer.should.equal(input.expected);
+      expect(answer).to.equal(input.expected);
     });
   });
 
@@ -32,9 +33,9 @@ describe('adder', function() {
     ];
     // prove that an error is raised for bad inputs
     badInputs.forEach(function(input) {
-      (function() {
-          adder(input[0], input[1])
-      }).should.throw(Error);
+      expect(function() {
+        adder(input[0], input[1]);
+      }).to.throw(Error);
     });
   });
 });
